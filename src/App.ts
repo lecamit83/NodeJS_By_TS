@@ -1,7 +1,12 @@
 import * as express from 'express';
 import { urlencoded, json } from 'body-parser';
+
+import { Routers } from "./routers/Routers";
+
 class App {
+    
     public app : express.Application;
+
     constructor(){
         this.app = express();
         this.config();
@@ -12,9 +17,7 @@ class App {
         this.app.use(urlencoded({extended : false}));
     }
     private mountRouters() : void {
-       this.app.get('/', (req, res)=>{
-           res.send({massage : "Hello"})
-       });
+        new Routers().routers(this.app);
     }
 
 }
