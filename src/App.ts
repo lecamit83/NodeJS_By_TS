@@ -22,7 +22,6 @@ class App {
         this.app.use(urlencoded({extended : false}));
     }
     private mongoSetup() : void {
-
         mongoose.connect(this.mongoUrl, {
             useNewUrlParser: true,
             useCreateIndex: true
@@ -31,8 +30,7 @@ class App {
                 throw err;
             }
             console.log('Connected database!');
-        });
-        
+        });        
     }
     private mountRouters() : void {
         new Routers().routers(this.app);

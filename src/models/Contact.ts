@@ -15,7 +15,9 @@ const ContactSchema = new Schema({
         type: String            
     },
     phone: {
-        type: Number            
+        type: Number ,
+        required:  true ,
+        unique : true,       
     }
 },{
     timestamps: true,
